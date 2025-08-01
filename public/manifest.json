@@ -1,0 +1,21 @@
+{
+  "name": "Akaal",
+  "short_name": "Akaal",
+  "icons": [
+    {
+      "src": "/images/mono-akaal-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/mono-akaal-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#150439",
+  "background_color": "#150439",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
