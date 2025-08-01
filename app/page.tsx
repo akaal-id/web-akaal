@@ -5,6 +5,7 @@ import HeroSlider from "@/components/HeroSlider";
 import VisionSection from "@/components/VisionSection";
 import OurServiceSection from "@/components/OurServiceSection";
 import AboutAkaalSection from "@/components/AboutAkaalSection";
+import AksessSection from "@/components/AksessSection";
 
 export default function Page() {
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -212,6 +213,7 @@ export default function Page() {
         <VisionSection />
         <OurServiceSection />
         <AboutAkaalSection />
+        <AksessSection />
         {/* You can add more sections here if needed */}
       </main>
       {/* <Footer /> */}
