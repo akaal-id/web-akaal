@@ -43,59 +43,65 @@ export default function Navbar() {
   }, [hoveredIdx, activeIdx]);
 
   return (
-    <header className="w-full py-4 px-4 md:px-8 bg-[#0a0814] flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <Link href="/">
-          <img src="/images/akaal-logo.png" alt="Akaal Logo" className="h-8 md:h-8 w-auto object-contain cursor-pointer" />
-        </Link>
-      </div>
-      <nav className="hidden md:block w-full md:w-auto">
-        <div
-          ref={containerRef}
-          className="relative flex gap-8 justify-center"
-          onMouseLeave={() => setHoveredIdx(null)}
-        >
-          {NAV_ITEMS.map((item, idx) => (
-            <a
-              key={item.href}
-              href={item.href}
-              ref={el => {
-                itemRefs.current[idx] = el;
-              }}
-              data-id={item.href}
-              className={`relative px-1 py-2 transition-colors duration-200
-                ${activeIdx === idx ? "font-regular text-purple-400" : "font-regular text-white"}
-                ${hoveredIdx === idx ? "text-purple-300" : ""}
-              `}
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onClick={() => setActiveIdx(idx)}
-            >
-              {item.label}
-            </a>
-          ))}
+    <header className="w-full px-6 md:px-12 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-b border-gray-800 sticky top-0 z-50">
+              <div className="max-w-7xl mx-auto flex items-center justify-between h-[80px]">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link href="/">
+            <img src="/images/akaal-logo.png" alt="Akaal Logo" className="h-8 w-auto object-contain cursor-pointer" />
+          </Link>
+        </div>
+
+        {/* Navigation */}
+        <nav className="hidden md:block relative h-full">
+          <div
+            ref={containerRef}
+            className="flex gap-12 justify-center h-full"
+            onMouseLeave={() => setHoveredIdx(null)}
+          >
+            {NAV_ITEMS.map((item, idx) => (
+              <a
+                key={item.href}
+                href={item.href}
+                ref={el => {
+                  itemRefs.current[idx] = el;
+                }}
+                data-id={item.href}
+                className={`relative px-3 flex items-center h-full text-sm font-medium transition-all duration-200
+                  ${activeIdx === idx ? "text-purple-400" : "text-gray-300 hover:text-white"}
+                  ${hoveredIdx === idx ? "text-purple-300" : ""}
+                `}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onClick={() => setActiveIdx(idx)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
           <span
-            className="pointer-events-none absolute left-0 -bottom-0 h-0.5 rounded-2px transition-all duration-300 ease-in-out"
+            className="pointer-events-none absolute left-0 bottom-0 h-0.5 rounded-full transition-all duration-300 ease-in-out"
             style={{
               ...underlineStyle,
-              background:
-                "linear-gradient(90deg, #06b6d4 0%, #a78bfa 100%)",
-              height: "3px",
+              background: "linear-gradient(90deg, #a78bfa 0%, #8b5cf6 100%)",
+              height: "2px",
               transition: "width 300ms ease-in-out, transform 300ms ease-in-out, opacity 150ms",
             }}
           />
+        </nav>
+
+        {/* Contact Button */}
+        <div className="flex items-center">
+          <a
+            href="#contact"
+            className="hidden md:inline-block px-6 py-2.5 rounded-full border border-purple-400/30 bg-transparent font-medium text-sm text-purple-400 hover:bg-purple-400/10 hover:border-purple-400/50 transition-all duration-200"
+            onClick={e => {
+              e.preventDefault();
+              setContactModalOpen(true);
+            }}
+          >
+            Contact Us
+          </a>
         </div>
-      </nav>
-      <a
-        href="#contact"
-        className="hidden md:inline-block ml-8 px-6 py-2 rounded-full border contact-gradient-border font-reguler text-base hover:bg-gradient-to-r hover:from-[var(--gradient-purple)] hover:to-[var(--gradient-lightblue)] hover:text-white transition-all duration-200"
-        style={{ background: 'transparent' }}
-        onClick={e => {
-          e.preventDefault();
-          setContactModalOpen(true);
-        }}
-      >
-        <span className="contact-gradient-text">Contact Us</span>
-      </a>
       {/* Contact Modal */}
       {contactModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={() => setContactModalOpen(false)}>
@@ -121,37 +127,69 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <button
-        className="md:hidden ml-auto text-white focus:outline-none"
-        aria-label="Open menu"
-        onClick={() => setSidebarOpen(true)}
-      >
-        <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <line x1="4" y1="6" x2="20" y2="6" />
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <line x1="4" y1="18" x2="20" y2="18" />
-        </svg>
-      </button>
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-gray-300 hover:text-white focus:outline-none"
+          aria-label="Open menu"
+          onClick={() => setSidebarOpen(true)}
+        >
+          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="20" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
       {sidebarOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 flex">
-          <div className="w-64 bg-[#18122b] h-full p-6 flex flex-col gap-6 animate-slide-in-left">
-            <button
-              className="self-end mb-6 text-white"
-              aria-label="Close menu"
-              onClick={() => setSidebarOpen(false)}
-            >
-              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-            <a href="#" className="text-base font-regular text-[#a78bfa] border-b-2 border-[#a78bfa] pb-1 transition-colors duration-200" onClick={() => setSidebarOpen(false)}>Home</a>
-            <a href="#about" className="text-base font-regular text-[#a78bfa] border-b-2 border-[#a78bfa] pb-1 transition-colors duration-200" onClick={() => setSidebarOpen(false)}>About AKAAL</a>
-            <a href="#services" className="text-base font-regular text-[#a78bfa] border-b-2 border-[#a78bfa] pb-1 transition-colors duration-200" onClick={() => setSidebarOpen(false)}>Our Services</a>
-            <a href="#showcase" className="text-base font-regular text-[#a78bfa] border-b-2 border-[#a78bfa] pb-1 transition-colors duration-200" onClick={() => setSidebarOpen(false)}>Showcase</a>
-            <a href="#contact" className="mt-4 px-6 py-2 rounded-full border contact-gradient-border font-regular text-base hover:bg-gradient-to-r hover:from-[var(--gradient-purple)] hover:to-[var(--gradient-lightblue)] hover:text-white transition-all duration-200 text-center" style={{background: 'transparent'}} onClick={() => setSidebarOpen(false)}>
-              <span className="contact-gradient-text">Contact Us</span>
-            </a>
+        <div className="fixed inset-0 z-50 bg-black/80 flex md:hidden">
+          <div className="w-80 bg-gradient-to-b from-gray-900 to-black h-full p-8 flex flex-col gap-8 animate-slide-in-left border-r border-gray-800">
+            <div className="flex items-center justify-between mb-8">
+              <img src="/images/akaal-logo.png" alt="Akaal Logo" className="h-8 w-auto object-contain" />
+              <button
+                className="text-gray-400 hover:text-white transition-colors"
+                aria-label="Close menu"
+                onClick={() => setSidebarOpen(false)}
+              >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+            <nav className="flex flex-col gap-6">
+              {NAV_ITEMS.map((item, idx) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`text-lg font-medium transition-colors duration-200 ${
+                    activeIdx === idx 
+                      ? "text-cyan-400 border-b border-cyan-400 pb-2" 
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                  onClick={() => {
+                    setActiveIdx(idx);
+                    setSidebarOpen(false);
+                  }}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <div className="mt-auto">
+              <a
+                href="#contact"
+                className="w-full px-6 py-3 rounded-full border border-purple-400/30 bg-transparent font-medium text-purple-400 hover:bg-purple-400/10 hover:border-purple-400/50 transition-all duration-200 text-center block"
+                onClick={e => {
+                  e.preventDefault();
+                  setContactModalOpen(true);
+                  setSidebarOpen(false);
+                }}
+              >
+                Contact Us
+              </a>
+            </div>
           </div>
           <div className="flex-1" onClick={() => setSidebarOpen(false)} />
         </div>

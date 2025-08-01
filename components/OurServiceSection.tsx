@@ -118,25 +118,42 @@ function ServiceTab({ selected, setSelected }: { selected: string; setSelected: 
 }
 
 function AkaalDigitalTechServices() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="relative w-full max-w-6xl mx-auto mb-16 rounded-2xl bg-gradient-to-br from-[#150439] to-[#3B0B9F] p-10 md:p-14 shadow-xl overflow-hidden flex flex-col md:flex-row gap-8">
-      {/* Left Content */}
-      <div className="flex-1 z-10">
-        <div className="mb-6">
-          {/* Line 1: Logo */}
-        <div className="flex items-center gap-3 mb-8">
-            <img src="/images/icon-white-rgb.png" alt="Akaal Digital & Tech Logo" className="w-8 h-8" />
-        </div>
-        <div className="mb-0">
-             <span className="text-white text-lg font-medium">Our Services:</span>
-        </div>
-        <div className="mb-4">
+    <div 
+      className="relative w-full max-w-6xl mx-auto mb-16 rounded-2xl bg-gradient-to-br from-[#150439] to-[#3B0B9F] p-10 md:p-14 shadow-xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Top Section - Always Visible */}
+      <div className="flex flex-col md:flex-row gap-8 mb-8">
+        {/* Left Content */}
+        <div className="flex-1 z-10">
+          <div className="mb-6">
+            {/* Line 1: Logo */}
+            <div className="flex items-center gap-3 mb-8">
+              <img src="/images/icon-white-rgb.png" alt="Akaal Digital & Tech Logo" className="w-8 h-8" />
+            </div>
+            <div className="mb-0">
+              <span className="text-white text-lg font-medium">Our Services:</span>
+            </div>
+            <div className="mb-4">
               <span className="italic text-white text-4xl font-semibold">AKAAL DIGITAL & TECH</span>
-         </div>
-            <p className="text-white text-base md:text-sm mb-14 max-w-sm">
-                Solusi berbasis teknologi yang dirancang untuk memperkuat fondasi digital bisnis Anda, mengoptimalkan operasional, dan menciptakan pengalaman visual yang memikat.
+            </div>
+            <p className="text-white text-base md:text-sm max-w-sm">
+              Solusi berbasis teknologi yang dirancang untuk memperkuat fondasi digital bisnis Anda, mengoptimalkan operasional, dan menciptakan pengalaman visual yang memikat.
             </p>
+          </div>
         </div>
+        {/* Top Right Image */}
+        <div className="absolute right-36 top-20 hidden md:block z-0">
+          <img src="/images/digitech-1.png" alt="Akaal Digital & Tech Visual" className="w-[380px] rounded-xl translate-x-12 -translate-y-8" />
+        </div>
+      </div>
+
+      {/* Bottom Section - Cards Container (Hidden by default, shown on hover) */}
+      <div className={`transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 max-h-[1000px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="border border-[#D5B5FF] rounded-xl p-6 bg-transparent flex flex-col gap-2 transition-transform duration-300 ease-in-out hover:-translate-y-2">
             <div className="mb-2">
@@ -168,37 +185,46 @@ function AkaalDigitalTechServices() {
           </div>
         </div>
       </div>
-      {/* Top Right Image */}
-      <div className="absolute right-36 top-20 hidden md:block z-0">
-        <img src="/images/digitech-1.png" alt="Akaal Digital & Tech Visual" className="w-[380px] rounded-xl translate-x-12 -translate-y-8" />
-      </div>
     </div>
   );
 }
 
 function AkaalCreativeAgencyServices() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="relative w-full max-w-6xl mx-auto mb-16 rounded-2xl bg-gradient-to-br from-[#22A6BB] to-[#150439] p-8 md:p-14 shadow-xl overflow-hidden flex flex-col md:flex-row gap-8">
-      {/* Top Left Image */}
-      <div className="absolute left-0 top-0 hidden md:block z-0">
-        <img src="/images/agencies-1.png" alt="Akaal Creative Agency Visual" className="w-[420px] rounded-xl -translate-x-0 -translate-y-0" />
-      </div>
-      {/* Right Content */}
-      <div className="flex-1 z-10 flex flex-col items-end w-full">
-        <div className="mb-6 w-full md:w-auto text-right">
-          <div className="flex items-center gap-3 justify-end mb-8">
-            <img src="/images/icon-white-rgb.png" alt="Akaal Creative Agency Logo" className="w-8 h-8" />
-            </div>
-          <div className="mb-0">
-              <span className="text-white text-lg font-medium">Our Services:</span>
-          </div>
-          <div className="mb-4">
-            <span className="italic text-white text-4xl font-semibold">AKAAL CREATIVE AGENCY</span>
-          </div>
-          <p className="text-white text-base md:text-sm mb-8 max-w-xl ml-auto">
-            Solusi berbasis teknologi yang dirancang untuk memperkuat fondasi digital bisnis Anda, mengoptimalkan operasional, dan menciptakan pengalaman visual yang memikat.
-          </p>
+    <div 
+      className="relative w-full max-w-6xl mx-auto mb-16 rounded-2xl bg-gradient-to-br from-[#22A6BB] to-[#150439] p-8 md:p-14 shadow-xl overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Top Section - Always Visible */}
+      <div className="flex flex-col md:flex-row gap-8 mb-8">
+        {/* Top Left Image */}
+        <div className="absolute left-0 top-0 hidden md:block z-0">
+          <img src="/images/agencies-1.png" alt="Akaal Creative Agency Visual" className="w-[420px] rounded-xl -translate-x-0 -translate-y-0" />
         </div>
+        {/* Right Content */}
+        <div className="flex-1 z-10 flex flex-col items-end w-full">
+          <div className="mb-6 w-full md:w-auto text-right">
+            <div className="flex items-center gap-3 justify-end mb-8">
+              <img src="/images/icon-white-rgb.png" alt="Akaal Creative Agency Logo" className="w-8 h-8" />
+            </div>
+            <div className="mb-0">
+              <span className="text-white text-lg font-medium">Our Services:</span>
+            </div>
+            <div className="mb-4">
+              <span className="italic text-white text-4xl font-semibold">AKAAL CREATIVE AGENCY</span>
+            </div>
+            <p className="text-white text-base md:text-sm max-w-xl ml-auto">
+              Solusi berbasis teknologi yang dirancang untuk memperkuat fondasi digital bisnis Anda, mengoptimalkan operasional, dan menciptakan pengalaman visual yang memikat.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Section - Cards Container (Hidden by default, shown on hover) */}
+      <div className={`transition-all duration-500 ease-in-out ${isHovered ? 'opacity-100 max-h-[1000px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
           <div className="border border-[#D5B5FF] rounded-xl p-6 bg-transparent flex flex-col gap-2 transition-transform duration-300 ease-in-out hover:-translate-y-2">
             <div className="mb-2">
@@ -274,13 +300,11 @@ function ServiceCTA() {
 }
 
 export default function OurServiceSection() {
-  const [selected, setSelected] = React.useState('Digital & Tech');
   return (
     <section className="w-full py-24 flex flex-col items-center bg-transparent" id="our-service">
       <ServiceTitleText />
-      <ServiceTab selected={selected} setSelected={setSelected} />
-      {selected === 'Digital & Tech' && <AkaalDigitalTechServices />}
-      {selected === 'Creative Agency' && <AkaalCreativeAgencyServices />}
+      <AkaalDigitalTechServices />
+      <AkaalCreativeAgencyServices />
       <PromoSection />
       <ServiceCTA />
     </section>

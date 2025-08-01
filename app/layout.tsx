@@ -40,7 +40,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="bg-[#040016]">
+      <body className="bg-gradient-to-r from-gray-900 via-black to-gray-900">
         <LoaderLayout>
           <AppShell>{children}</AppShell>
         </LoaderLayout>

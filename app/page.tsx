@@ -211,8 +211,8 @@ export default function Page() {
         {/* Hero Section with Smooth Horizontal Slider */}
         <HeroSlider />
         <VisionSection />
-        <OurServiceSection />
         <AboutAkaalSection />
+        <OurServiceSection />
         <AksessSection />
         {/* You can add more sections here if needed */}
       </main>
