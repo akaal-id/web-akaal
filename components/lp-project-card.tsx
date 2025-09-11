@@ -14,7 +14,7 @@ export default function LpProjectCard({ project, className, onHoverStart, onHove
   return (
     <div 
       ref={cardRef}
-      className={`relative group overflow-hidden rounded-2xl bg-gray-800 ${className}`}
+      className={`relative group overflow-hidden rounded-0 bg-gray-800 ${className}`}
       onMouseEnter={() => onHoverStart?.(cardRef)}
       onMouseLeave={onHoverEnd}
     >
