@@ -1,46 +1,67 @@
-// Footer component extracted from app/page.tsx
 "use client";
 
 import Link from "next/link";
+import { Phone, Mail, MapPin, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a0e36] pt-12 pb-4 px-12 md:px-12">
-      <div className="w-[1152px] max-w-full mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-12 md:gap-0">
-        {/* Logo and Address */}
-        <div className="flex-1 flex flex-col items-start mb-0 md:mb-0">
-          <Link href="/">
-            <img
-              src="/images/akaal-logo.png"
-              alt="Akaal Logo"
-              className="w-32 mb-4 cursor-pointer"
-            />
-          </Link>
-          <div className="text-white text-lg font-medium mb-2">
-            PT. Asia Karya Lumina
-          </div>
-          <div className="text-neutral-300 text-sm mb-4 text-left max-w-xs md:max-w-md lg:max-w-xs">
-            <a
-              href="https://maps.app.goo.gl/xyRxwY17C6C8VB8C8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline focus:underline outline-none"
-            >
-              Jl. Gotong Royong | No.50 Rt.004/01, RT.3/RW.1, Ragunan, Ps. Minggu, Kota Jakarta Selatan,Daerah Khusus Ibukota Jakarta 12550
-            </a>
-          </div>
-        </div>
-        {/* Links */}
-        <div className="flex-[1.5] flex flex-col md:flex-row justify-between w-full md:w-auto gap-8 md:gap-0">
-          <div className="mb-2 md:mb-0">
-            <div className="text-white text-xl font-bold mb-4">
-              Navigation
+    <footer className="bg-black border-t border-white/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Company Info */}
+          <div className="lg:col-span-1 max-w-sm">
+            <Link href="/" className="inline-block mb-6">
+              <img
+                src="/images/logo-fullcolor-negative-rgb copy.png"
+                alt="Akaal Logo"
+                className="h-8 w-auto"
+              />
+            </Link>
+            <div className="text-white text-lg font-medium mb-3">
+              PT. Asia Karya Lumina
             </div>
-            <ul className="space-y-2 text-neutral-300 text-base text-sm">
+            <div className="text-gray-400 text-sm leading-relaxed mb-6">
+              <a
+                href="https://maps.app.goo.gl/xyRxwY17C6C8VB8C8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors inline-flex items-start gap-2"
+              >
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <span>
+                  Jl. Gotong Royong No.50 Rt.004/01, RT.3/RW.1, Ragunan, Ps. Minggu, 
+                  Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12550
+                </span>
+              </a>
+            </div>
+            <div className="space-y-3">
+              <a
+                href="https://wa.me/6285117326065"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="text-sm">+62 851-1732-6065</span>
+              </a>
+              <a
+                href="mailto:admin@akaal.id"
+                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+              >
+                <Mail className="h-4 w-4" />
+                <span className="text-sm">admin@akaal.id</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Navigation */}
+          <div className="min-w-0">
+            <h3 className="text-white text-lg font-medium mb-6">Navigation</h3>
+            <ul className="space-y-3">
               <li>
                 <a
                   href="#about"
-                  className="hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
                 >
                   About AKAAL
                 </a>
@@ -48,7 +69,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#services"
-                  className="hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
                 >
                   Our Services
                 </a>
@@ -56,7 +77,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#partnership"
-                  className="hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
                 >
                   Partnership
                 </a>
@@ -64,153 +85,52 @@ export default function Footer() {
               <li>
                 <a
                   href="#faq"
-                  className="hover:text-white transition-colors"
+                  className="text-gray-400 hover:text-white transition-colors text-sm"
                 >
                   Frequently Asked Question
                 </a>
               </li>
             </ul>
           </div>
-          <div className="mb-2 md:mb-0">
-            <div className="text-white text-xl font-bold mb-4">
-              Tentang Event
-            </div>
-            <ul className="space-y-2 text-neutral-300 text-base text-sm">
-              <li>
-                <a
-                  href="#buat-event"
-                  className="hover:text-white transition-colors"
-                >
-                  Buat Event
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#biaya"
-                  className="hover:text-white transition-colors"
-                >
-                  Biaya
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#lihat-event"
-                  className="hover:text-white transition-colors"
-                >
-                  Lihat Event
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#snk-event"
-                  className="hover:text-white transition-colors"
-                >
-                  S&K Event
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq-event"
-                  className="hover:text-white transition-colors"
-                >
-                  FAQ Event
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <div className="text-white text-xl font-bold mb-4">Follow us</div>
-            <div className="flex gap-4">
+
+          {/* Social Media */}
+          <div className="min-w-0">
+            <h3 className="text-white text-lg font-medium mb-6">Follow us</h3>
+            <div className="flex gap-4 mb-6">
               <a
                 href="#"
-                className="text-white text-2xl hover:opacity-80 transition-opacity"
+                className="p-2 border border-white/20 rounded-full text-gray-400 hover:text-white hover:border-yellow-400/20 transition-colors"
                 aria-label="Instagram"
               >
-                <svg
-                  width="28"
-                  height="28"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
+                <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-white text-2xl hover:opacity-80 transition-opacity"
-                aria-label="TikTok"
-              >
-                <svg
-                  width="28"
-                  height="28"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M9 17V8h3V6a3 3 0 0 1 6 0v2h-3v9a5 5 0 1 1-6-4.9" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-white text-2xl hover:opacity-80 transition-opacity"
+                className="p-2 border border-white/20 rounded-full text-gray-400 hover:text-white hover:border-yellow-400/20 transition-colors"
                 aria-label="LinkedIn"
               >
-                <svg
-                  width="28"
-                  height="28"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="2" y="9" width="4" height="12" />
-                  <circle cx="4" cy="4" r="2" />
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                </svg>
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
-            <li></li>
-            <div className="flex items-center gap-2 text-neutral-300 text-sm mb-2">
-            <a
-              href="https://wa.me/6285117326065"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:underline focus:underline outline-none"
-            >          
-                <img
-                  src="/images/whatsapp.png"
-                  alt="White WhatsApp icon, set against a dark background, representing contact information"
-                  className="w-4 h-4"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-                +62 851-1732-6065
-              </a>
-          </div>
-          <div className="flex items-center gap-2 text-neutral-300 text-sm">
-            <a
-              href="mailto:admin@akaal.id"
-              className="flex items-center gap-2 hover:underline focus:underline outline-none"
-            >        
-                <img
-                  src="/images/mail-inbox-app.png"
-                  alt="White mail inbox icon with envelope flap open, set against a dark background, representing contact information"
-                  className="w-4 h-4"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-              admin@akaal.id
-            </a>
-          </div>
           </div>
         </div>
-      </div>
-      <hr className="my-8 border-[#3a2a5d]" />
-      <div className="text-center text-light text-sm text-white/20">
-        © 2025 Asia Karya Lumina. All Rights Reserved
+
+        {/* Bottom Section */}
+        <div className="mt-12 pt-8 border-t border-white/20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-gray-400 text-sm">
+              © 2025 Asia Karya Lumina. All Rights Reserved
+            </div>
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );

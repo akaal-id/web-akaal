@@ -22,7 +22,7 @@ export default function VisionSection() {
         <div className="flex items-center gap-4 transition-transform duration-300 ease-in-out hover:-translate-y-2">
           <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="mt-1 text-white"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
           <div>
-            <div className="font-semibold text-white text-l mb-1">We're a proven partner</div>
+            <div className="font-semibold text-white text-l mb-1">We&apos;re a proven partner</div>
             <div className="text-gray-300 text-base text-sm">lebih dari 100 brand telah sukses berkembang bersama kami</div>
           </div>
         </div>
