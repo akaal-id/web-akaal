@@ -120,7 +120,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-4 mt-16">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
             <p className="text-lg md:text-0.5xl text-gray-300 leading-relaxed flex-1 mb-4 lg:mb-0 lg:mr-8">
-              At AKAAL, every project is more than just a task—it's a partnership built on creativity, strategy, and measurable results. From branding and web design to digital marketing campaigns and AI automation, our work showcases how we transform challenges into opportunities for growth.
+              At AKAAL, every project is more than just a task—it&apos;s a partnership built on creativity, strategy, and measurable results. From branding and web design to digital marketing campaigns and AI automation, our work showcases how we transform challenges into opportunities for growth.
             </p>
             <div className="flex-shrink-0">
               <CTAButton variant="white">See All Works</CTAButton>

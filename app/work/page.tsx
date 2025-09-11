@@ -33,7 +33,7 @@ export default function WorkPage() {
             Ready to Start Your Project?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can bring your vision to life with our innovative digital solutions.
+            Let&apos;s discuss how we can bring your vision to life with our innovative digital solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

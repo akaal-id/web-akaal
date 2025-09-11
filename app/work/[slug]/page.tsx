@@ -7,13 +7,14 @@ import { ArrowLeft, ExternalLink, Github, Calendar, User, Tag } from "lucide-rea
 import { projects } from "@/lib/project-data";
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find(p => p.slug === params.slug);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = projects.find(p => p.slug === slug);
 
   if (!project) {
     notFound();
