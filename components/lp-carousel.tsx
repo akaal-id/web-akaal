@@ -1,63 +1,74 @@
 "use client"
-import React from "react"
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
-import LpProjectCard from "./lp-project-card"
-import { projects } from "@/lib/project-data"
 
-// Import Swiper styles
-import 'swiper/css'
+import React, { useEffect, useRef } from "react"
+import Splide from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import '@splidejs/splide/dist/css/splide.min.css';
+import LpProjectCard from './lp-project-card';
+import { projects } from '@/lib/project-data';
 
 export default function LpCarousel() {
-  // Use all 10 projects for the carousel
-  const carouselProjects = projects
+  const splideRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (splideRef.current) {
+      const splide = new Splide('.splide', {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        perPage: 5,
+        gap: '1rem',
+        padding: '2rem',
+        pagination: false,
+        arrows: false,
+        autoScroll: {
+          speed: 1,
+        },
+        breakpoints: {
+          368: {
+            perPage: 1,
+            gap: '0.5rem',
+            padding: '1rem',
+          },
+          640: {
+            perPage: 2,
+            gap: '0.5rem',
+            padding: '1rem',
+          },
+          768: {
+            perPage: 2,
+            gap: '0.5rem',
+            padding: '1.5rem',
+          },
+          1266: {
+            perPage: 3,
+            gap: '0.5rem',
+            padding: '2rem',
+          },
+        },
+      });
+
+      splide.mount({ AutoScroll });
+
+      return () => {
+        splide.destroy();
+      };
+    }
+  }, []);
 
   return (
-    <div className="w-full min-h-screen py-20 px-4">
-      <div className="w-full">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 font-inter">
-            Our <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Projects</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-inter">
-            Discover our portfolio of innovative digital solutions that transform businesses and create exceptional user experiences.
-          </p>
-        </div>
-
-        {/* Swiper Carousel */}
-        <div className="pt-12 pb-12">
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={24}
-            slidesPerView={1}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-              },
-              1024: {
-                slidesPerView: 5,
-                spaceBetween: 24,
-              },
-            }}
-            className="w-full"
-          >
-            {carouselProjects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <LpProjectCard
-                  project={project}
-                  className="w-full"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+    <div className="splide" ref={splideRef} style={{ overflow: 'visible' }}>
+      <div className="splide__track" style={{ overflow: 'visible' }}>
+        <ul className="splide__list" style={{ overflow: 'visible' }}>
+          {projects.map((project) => (
+            <li key={project.id} className="splide__slide" style={{ overflow: 'visible' }}>
+              <LpProjectCard 
+                project={project} 
+                className="h-80 w-auto sm:h-96 sm:w-auto md:h-[28rem] md:w-auto mx-auto"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
