@@ -99,7 +99,7 @@ export default function Footer() {
           {/* Newsletter Subscription */}
           <div className="min-w-0">
             <h3 className="text-white text-lg font-medium mb-6" style={{ fontFamily: 'Plus Jakarta Sans' }}>
-              Subscribe to AKAAL's Newsletter
+              Subscribe to AKAAL&apos;s Newsletter
             </h3>
             <p className="text-gray-400 text-sm mb-4" style={{ fontFamily: 'Inter' }}>
               Our weekly newsletter about digital innovation and business growth
