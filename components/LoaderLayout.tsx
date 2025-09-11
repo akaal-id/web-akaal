@@ -27,7 +27,7 @@ export default function LoaderLayout({ children }: { children: React.ReactNode }
     return (
       <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
         {/* Subtle grid background */}
-        <div className="absolute inset-0 bg-dotted-grid opacity-30"></div>
+        <div className="absolute inset-0 bg-dotted-grid opacity-0"></div>
 
         {/* Custom loader */}
         <div className="loader-wrapper">

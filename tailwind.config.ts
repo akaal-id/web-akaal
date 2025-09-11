@@ -25,10 +25,103 @@ const config: Config = {
   				'100%': {
   					opacity: '100%'
   				}
+  			},
+  			'pulse-slow': {
+  				'0%, 100%': {
+  					transform: 'scale(1)'
+  				},
+  				'50%': {
+  					transform: 'scale(1.1)'
+  				}
+  			},
+  			'float-1': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'25%': {
+  					transform: 'translate(30px, -20px) scale(1.1)'
+  				},
+  				'50%': {
+  					transform: 'translate(-20px, 30px) scale(0.9)'
+  				},
+  				'75%': {
+  					transform: 'translate(20px, 10px) scale(1.05)'
+  				}
+  			},
+  			'float-2': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'33%': {
+  					transform: 'translate(-40px, 20px) scale(1.2)'
+  				},
+  				'66%': {
+  					transform: 'translate(25px, -30px) scale(0.8)'
+  				}
+  			},
+  			'float-3': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'20%': {
+  					transform: 'translate(25px, 15px) scale(1.15)'
+  				},
+  				'40%': {
+  					transform: 'translate(-15px, -25px) scale(0.85)'
+  				},
+  				'60%': {
+  					transform: 'translate(35px, -10px) scale(1.05)'
+  				},
+  				'80%': {
+  					transform: 'translate(-20px, 20px) scale(0.95)'
+  				}
+  			},
+  			'float-4': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'30%': {
+  					transform: 'translate(-30px, -15px) scale(1.1)'
+  				},
+  				'70%': {
+  					transform: 'translate(20px, 25px) scale(0.9)'
+  				}
+  			},
+  			'float-5': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'25%': {
+  					transform: 'translate(40px, 20px) scale(1.25)'
+  				},
+  				'50%': {
+  					transform: 'translate(-25px, -35px) scale(0.75)'
+  				},
+  				'75%': {
+  					transform: 'translate(15px, 10px) scale(1.1)'
+  				}
+  			},
+  			'float-6': {
+  				'0%, 100%': {
+  					transform: 'translate(0, 0) scale(1)'
+  				},
+  				'40%': {
+  					transform: 'translate(-35px, 30px) scale(1.3)'
+  				},
+  				'80%': {
+  					transform: 'translate(30px, -20px) scale(0.7)'
+  				}
   			}
   		},
   		animation: {
-  			appear: 'appear 300ms ease-out forwards'
+  			appear: 'appear 300ms ease-out forwards',
+  			'pulse-slow': 'pulse-slow 10s infinite ease-in-out',
+  			'float-1': 'float-1 15s infinite ease-in-out',
+  			'float-2': 'float-2 18s infinite ease-in-out',
+  			'float-3': 'float-3 20s infinite ease-in-out',
+  			'float-4': 'float-4 16s infinite ease-in-out',
+  			'float-5': 'float-5 22s infinite ease-in-out',
+  			'float-6': 'float-6 14s infinite ease-in-out'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

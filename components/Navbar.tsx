@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <motion.header 
-      className="sticky top-0 z-50 w-full bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60"
+      className="fixed top-0 left-0 right-0 z-50 w-full py-2 bg-black/5 backdrop-blur supports-[backdrop-filter]:bg-black/10"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -75,7 +75,7 @@ export default function Navbar() {
             {/* Tabs Container */}
             <div
               ref={containerRef}
-              className="relative bg-muted/30 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20"
+              className="relative bg-muted/80 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20"
               onMouseLeave={() => setHoveredIdx(null)}
             >
               <div className="flex items-center gap-2">
@@ -108,7 +108,7 @@ export default function Navbar() {
             </div>
 
             {/* Contact Buttons Container */}
-            <div className="bg-muted/30 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20">
+            <div className="bg-muted/80 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20">
               <div className="flex items-center gap-2">
                 <motion.button
                   className="p-2 border border-primary/20 text-primary rounded-full hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center"

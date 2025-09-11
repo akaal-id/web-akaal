@@ -2,25 +2,13 @@
 
 export default function GetStartedButton() {
   return (
-    <div 
-      className="rounded-full p-1"
-      style={{
-        background: 'linear-gradient(90deg, #392686 0%, #6543EC 100%)'
-      }}
-    >
+    <div className="group rounded-full p-1 bg-gradient-to-r from-[#392686] to-[#6543EC]">
       <button 
-        className="text-white rounded-full font-normal text-base transition-all duration-500 ease-in-out w-full"
+        className="text-white rounded-full font-normal text-base w-full bg-gradient-to-r from-[#6543EC] to-[#392686] hover:from-[#392686] hover:to-[#6543EC] transition-all duration-500 ease-in-out"
         style={{
           padding: '10px 24px',
-          background: 'linear-gradient(90deg, #6543EC 0%, #392686 100%)',
           border: 'none',
           borderRadius: '9999px'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'linear-gradient(90deg, #392686 0%, #6543EC 100%)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'linear-gradient(90deg, #6543EC 0%, #392686 100%)';
         }}
       >
         Get Started

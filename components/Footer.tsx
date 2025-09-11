@@ -96,24 +96,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Media */}
+          {/* Newsletter Subscription */}
           <div className="min-w-0">
-            <h3 className="text-white text-lg font-medium mb-6">Follow us</h3>
-            <div className="flex gap-4 mb-6">
-              <a
-                href="#"
-                className="p-2 border border-white/20 rounded-full text-gray-400 hover:text-white hover:border-yellow-400/20 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="p-2 border border-white/20 rounded-full text-gray-400 hover:text-white hover:border-yellow-400/20 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+            <h3 className="text-white text-lg font-medium mb-6" style={{ fontFamily: 'Plus Jakarta Sans' }}>
+              Subscribe to AKAAL's Newsletter
+            </h3>
+            <p className="text-gray-400 text-sm mb-4" style={{ fontFamily: 'Inter' }}>
+              Our weekly newsletter about digital innovation and business growth
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input 
+                type="email" 
+                placeholder="Email" 
+                className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 text-sm"
+                style={{ fontFamily: 'Inter' }}
+              />
+              <button className="bg-white text-black px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap text-sm" style={{ fontFamily: 'Plus Jakarta Sans' }}>
+                Subscribe
+              </button>
             </div>
           </div>
         </div>

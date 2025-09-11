@@ -1,14 +1,17 @@
 "use client"
 
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Splide from '@splidejs/splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/splide/dist/css/splide.min.css';
 import LpProjectCard from './lp-project-card';
+import BlurOverlay from './BlurOverlay';
 import { projects } from '@/lib/project-data';
 
 export default function LpCarousel() {
   const splideRef = useRef<HTMLDivElement>(null);
+  const [isBlurVisible, setIsBlurVisible] = useState(false);
+  const [activeCardRef, setActiveCardRef] = useState<React.RefObject<HTMLDivElement> | undefined>(undefined);
 
   useEffect(() => {
     if (splideRef.current) {
@@ -57,19 +60,30 @@ export default function LpCarousel() {
   }, []);
 
   return (
-    <div className="splide" ref={splideRef} style={{ overflow: 'visible' }}>
-      <div className="splide__track" style={{ overflow: 'visible' }}>
-        <ul className="splide__list" style={{ overflow: 'visible' }}>
-          {projects.map((project) => (
-            <li key={project.id} className="splide__slide" style={{ overflow: 'visible' }}>
-              <LpProjectCard 
-                project={project} 
-                className="h-80 w-auto sm:h-96 sm:w-auto md:h-[28rem] md:w-auto mx-auto"
-              />
-            </li>
-          ))}
-        </ul>
+    <>
+      <BlurOverlay isVisible={isBlurVisible} activeCardRef={activeCardRef} />
+      <div className="splide" ref={splideRef} style={{ overflow: 'visible' }}>
+        <div className="splide__track" style={{ overflow: 'visible' }}>
+          <ul className="splide__list" style={{ overflow: 'visible' }}>
+            {projects.map((project) => (
+              <li key={project.id} className="splide__slide" style={{ overflow: 'visible' }}>
+                <LpProjectCard 
+                  project={project} 
+                  className="h-80 w-auto sm:h-96 sm:w-auto md:h-[28rem] md:w-auto mx-auto"
+                  onHoverStart={(ref) => {
+                    setActiveCardRef(ref);
+                    setIsBlurVisible(true);
+                  }}
+                  onHoverEnd={() => {
+                    setActiveCardRef(undefined);
+                    setIsBlurVisible(false);
+                  }}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
