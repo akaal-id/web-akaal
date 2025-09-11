@@ -3,14 +3,25 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function LoaderLayout({ children }: { children: React.ReactNode }) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    
     setLoading(true);
-    const timeout = setTimeout(() => setLoading(false), 2000);
+    const timeout = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timeout);
-  }, [pathname]);
+  }, [pathname, mounted]);
+
+  if (!mounted) {
+    return <>{children}</>;
+  }
 
   if (loading) {
     return (

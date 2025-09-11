@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Showcase - Our Digital Projects & Portfolio | Akaal",
@@ -54,17 +55,23 @@ export default function ShowcasePage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">Showcase</h1>
         <div className="max-w-3xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-card/50 backdrop-blur-sm border border-border/20 rounded-lg p-6 shadow-lg flex flex-col items-center">
-            <img src="/images/photo-1.jpg" alt="Modern Web Application - Akaal Project Portfolio" className="w-full h-40 object-cover rounded mb-4" />
+            <div className="relative w-full h-40 mb-4">
+              <Image src="/images/photo-1.jpg" alt="Modern Web Application - Akaal Project Portfolio" fill className="object-cover rounded" />
+            </div>
             <h2 className="text-xl font-semibold mb-2 text-violet-300">Project One</h2>
             <p className="text-muted-foreground text-center">A modern web application built for performance and scalability, featuring a beautiful UI and seamless user experience.</p>
           </div>
           <div className="bg-card/50 backdrop-blur-sm border border-border/20 rounded-lg p-6 shadow-lg flex flex-col items-center">
-            <img src="/images/photo-2.jpg" alt="Custom Mobile Solution - Akaal Project Portfolio" className="w-full h-40 object-cover rounded mb-4" />
+            <div className="relative w-full h-40 mb-4">
+              <Image src="/images/photo-2.jpg" alt="Custom Mobile Solution - Akaal Project Portfolio" fill className="object-cover rounded" />
+            </div>
             <h2 className="text-xl font-semibold mb-2 text-violet-300">Project Two</h2>
             <p className="text-muted-foreground text-center">A custom mobile solution designed to streamline business operations and enhance productivity on the go.</p>
           </div>
           <div className="bg-card/50 backdrop-blur-sm border border-border/20 rounded-lg p-6 shadow-lg flex flex-col items-center">
-            <img src="/images/photo-3.jpg" alt="Cloud-Based Platform - Akaal Project Portfolio" className="w-full h-40 object-cover rounded mb-4" />
+            <div className="relative w-full h-40 mb-4">
+              <Image src="/images/photo-3.jpg" alt="Cloud-Based Platform - Akaal Project Portfolio" fill className="object-cover rounded" />
+            </div>
             <h2 className="text-xl font-semibold mb-2 text-violet-300">Project Three</h2>
             <p className="text-muted-foreground text-center">A cloud-based platform enabling real-time collaboration and data-driven decision making for enterprises.</p>
           </div>

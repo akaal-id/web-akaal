@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LpCarousel from "@/components/lp-carousel";
 
 export const metadata: Metadata = {
   title: "Akaal - Digital Innovation & Technology Solutions",
@@ -46,8 +47,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Empty Landing Page */}
+    <div className="min-h-screen text-white akaal-bg">
+      <LpCarousel />
     </div>
   )
 }

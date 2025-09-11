@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useRef, useState, useLayoutEffect } from "react";
 import { useEffect } from "react";
@@ -59,9 +60,11 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
           >
             <Link href="/" className="flex items-center">
-              <img 
+              <Image 
                 src="/images/logo-fullcolor-negative-rgb copy.png" 
                 alt="Akaal Logo" 
+                width={120}
+                height={32}
                 className="h-8 w-auto object-contain" 
               />
             </Link>

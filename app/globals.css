@@ -16,6 +16,13 @@
     background-size: 24px 24px;
   }
   
+  .bg-large-grid {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  
   .dark .bg-dotted-grid {
     background-image: 
       linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -302,6 +309,11 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+  }
+  
+  /* Custom AKAAL background */
+  .akaal-bg {
+    background-color: #000000;
   }
 }
 

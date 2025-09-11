@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -11,9 +12,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1 max-w-sm">
             <Link href="/" className="inline-block mb-6">
-              <img
+              <Image
                 src="/images/logo-fullcolor-negative-rgb copy.png"
                 alt="Akaal Logo"
+                width={120}
+                height={32}
                 className="h-8 w-auto"
               />
             </Link>

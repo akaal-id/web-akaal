@@ -1,102 +1,69 @@
 export interface Project {
-  id: number
-  category: "agency" | "social media management" | "KV" | "Digital"
-  title: string
-  company: string
-  slug: string
-  imageSrc: string
-  description: string
-  gradientFrom: string
-  gradientTo: string
+  id: number;
+  title: string;
+  client: string;
+  image_url: string;
 }
 
 export const projects: Project[] = [
-  // Digital Projects (3)
   {
     id: 1,
-    category: "Digital",
-    title: "E-commerce Platform Redesign",
-    company: "TechFlow Solutions",
-    slug: "ecommerce-platform-redesign",
-    imageSrc: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=800&fit=crop&crop=center",
-    description: "Complete redesign of a modern e-commerce platform with enhanced user experience and mobile-first approach.",
-    gradientFrom: "#0f172a",
-    gradientTo: "#3b82f6"
+    title: "Akaal Digital Platform",
+    client: "Akaal Technologies",
+    image_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
   },
   {
     id: 2,
-    category: "Digital",
-    title: "Mobile Banking App",
-    company: "FinTech Innovations",
-    slug: "mobile-banking-app",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=800&fit=crop&crop=center",
-    description: "Secure and intuitive mobile banking application with advanced security features and seamless user interface.",
-    gradientFrom: "#1e293b",
-    gradientTo: "#10b981"
+    title: "Akaal Mobile App",
+    client: "Akaal Solutions",
+    image_url: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop"
   },
   {
     id: 3,
-    category: "Digital",
-    title: "SaaS Dashboard Interface",
-    company: "CloudSync Inc",
-    slug: "saas-dashboard-interface",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=800&fit=crop&crop=center",
-    description: "Comprehensive dashboard interface for SaaS platform with real-time analytics and customizable widgets.",
-    gradientFrom: "#7c3aed",
-    gradientTo: "#ec4899"
+    title: "Akaal E-commerce",
+    client: "Akaal Commerce",
+    image_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
   },
-  
-  // Agency Projects (4)
   {
     id: 4,
-    category: "agency",
-    title: "Brand Identity & Strategy",
-    company: "Creative Minds Co",
-    slug: "brand-identity-strategy",
-    imageSrc: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=800&fit=crop&crop=center",
-    description: "Complete brand identity development including logo design, brand guidelines, and marketing strategy.",
-    gradientFrom: "#dc2626",
-    gradientTo: "#f59e0b"
+    title: "Akaal Dashboard",
+    client: "Akaal Analytics",
+    image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
   },
   {
     id: 5,
-    category: "agency",
-    title: "Corporate Website Development",
-    company: "Global Enterprises Ltd",
-    slug: "corporate-website-development",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=800&fit=crop&crop=center",
-    description: "Professional corporate website with CMS integration, multilingual support, and SEO optimization.",
-    gradientFrom: "#059669",
-    gradientTo: "#0d9488"
+    title: "Akaal Web Portal",
+    client: "Akaal Services",
+    image_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
   },
   {
     id: 6,
-    category: "agency",
-    title: "Marketing Campaign Design",
-    company: "Growth Partners",
-    slug: "marketing-campaign-design",
-    imageSrc: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=800&fit=crop&crop=center",
-    description: "Comprehensive marketing campaign including print materials, digital assets, and social media content.",
-    gradientFrom: "#be185d",
-    gradientTo: "#7c2d12"
+    title: "Akaal Cloud System",
+    client: "Akaal Infrastructure",
+    image_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
   },
   {
     id: 7,
-    category: "agency",
-    title: "Product Launch Strategy",
-    company: "Innovation Labs",
-    slug: "product-launch-strategy",
-    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=800&fit=crop&crop=center",
-    description: "End-to-end product launch strategy including market research, positioning, and go-to-market execution.",
-    gradientFrom: "#1d4ed8",
-    gradientTo: "#7c3aed"
+    title: "Akaal AI Platform",
+    client: "Akaal Intelligence",
+    image_url: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop"
+  },
+  {
+    id: 8,
+    title: "Akaal Design System",
+    client: "Akaal Creative",
+    image_url: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&h=600&fit=crop"
+  },
+  {
+    id: 9,
+    title: "Akaal Data Hub",
+    client: "Akaal Insights",
+    image_url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
+  },
+  {
+    id: 10,
+    title: "Akaal Automation",
+    client: "Akaal Process",
+    image_url: "https://images.unsplash.com/photo-1518186285589-2f7649ce83e0?w=800&h=600&fit=crop"
   }
-]
-
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find(project => project.slug === slug)
-}
-
-export function getProjectsByCategory(category: Project['category']): Project[] {
-  return projects.filter(project => project.category === category)
-}
+];
