@@ -46,7 +46,7 @@ export default function Navbar() {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 z-50 w-full py-2 bg-black/5 backdrop-blur supports-[backdrop-filter]:bg-black/10"
+      className="fixed top-0 left-0 right-0 z-50 w-full py-2"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -65,7 +65,10 @@ export default function Navbar() {
                 alt="Akaal Logo" 
                 width={120}
                 height={32}
-                className="h-8 w-auto object-contain" 
+                className="h-8 w-auto object-contain"
+                style={{
+                  filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))'
+                }} 
               />
             </Link>
           </motion.div>

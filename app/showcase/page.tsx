@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from "next";
 import Image from "next/image";
+import Background from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "Showcase - Our Digital Projects & Portfolio | Akaal",
@@ -48,8 +49,7 @@ export const metadata: Metadata = {
 export default function ShowcasePage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-dotted-grid opacity-30"></div>
+      <Background variant="dots-only" />
       
       <section className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 py-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">Showcase</h1>

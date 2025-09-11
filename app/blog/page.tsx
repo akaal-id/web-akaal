@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Background from "@/components/Background";
 
 export const metadata: Metadata = {
   title: "Blog - Insights & Updates | Akaal",
@@ -46,8 +47,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-dotted-grid opacity-30"></div>
+      <Background variant="dots-only" />
 
       <main className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="text-center">

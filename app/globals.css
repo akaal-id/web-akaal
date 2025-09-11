@@ -196,6 +196,168 @@
     animation: float-right 9s ease-in-out infinite;
   }
 
+  /* Dynamic background animations */
+  @keyframes float-pulse {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) scale(1);
+      opacity: 0.4;
+    }
+    25% { 
+      transform: translateY(-30px) translateX(20px) scale(1.1);
+      opacity: 0.6;
+    }
+    50% { 
+      transform: translateY(-60px) translateX(-10px) scale(0.9);
+      opacity: 0.3;
+    }
+    75% { 
+      transform: translateY(-30px) translateX(-20px) scale(1.05);
+      opacity: 0.5;
+    }
+  }
+  
+  @keyframes float-wave {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+      opacity: 0.35;
+    }
+    33% { 
+      transform: translateY(40px) translateX(-30px) scale(1.2) rotate(2deg);
+      opacity: 0.5;
+    }
+    66% { 
+      transform: translateY(-20px) translateX(40px) scale(0.8) rotate(-1deg);
+      opacity: 0.25;
+    }
+  }
+  
+  @keyframes float-drift {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) scale(1);
+      opacity: 0.25;
+    }
+    20% { 
+      transform: translateY(-25px) translateX(15px) scale(1.1);
+      opacity: 0.4;
+    }
+    40% { 
+      transform: translateY(15px) translateX(-20px) scale(0.9);
+      opacity: 0.2;
+    }
+    60% { 
+      transform: translateY(-10px) translateX(25px) scale(1.05);
+      opacity: 0.35;
+    }
+    80% { 
+      transform: translateY(20px) translateX(-15px) scale(0.95);
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes float-orbit {
+    0% { 
+      transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+      opacity: 0.2;
+    }
+    25% { 
+      transform: translateY(-40px) translateX(30px) scale(1.15) rotate(90deg);
+      opacity: 0.35;
+    }
+    50% { 
+      transform: translateY(20px) translateX(-40px) scale(0.85) rotate(180deg);
+      opacity: 0.15;
+    }
+    75% { 
+      transform: translateY(-20px) translateX(35px) scale(1.05) rotate(270deg);
+      opacity: 0.3;
+    }
+  }
+  
+  @keyframes float-spiral {
+    0% { 
+      transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+      opacity: 0.15;
+    }
+    30% { 
+      transform: translateY(-35px) translateX(25px) scale(1.2) rotate(108deg);
+      opacity: 0.25;
+    }
+    60% { 
+      transform: translateY(25px) translateX(-35px) scale(0.8) rotate(216deg);
+      opacity: 0.1;
+    }
+    90% { 
+      transform: translateY(-15px) translateX(30px) scale(1.1) rotate(324deg);
+      opacity: 0.2;
+    }
+  }
+  
+  @keyframes color-shift-1 {
+    0%, 100% { 
+      background: 'radial-gradient(ellipse at top right, #3B82F6 0%, #8B5CF6 30%, #EC4899 60%, transparent 80%)';
+    }
+    33% { 
+      background: 'radial-gradient(ellipse at top right, #8B5CF6 0%, #EC4899 30%, #F59E0B 60%, transparent 80%)';
+    }
+    66% { 
+      background: 'radial-gradient(ellipse at top right, #EC4899 0%, #F59E0B 30%, #3B82F6 60%, transparent 80%)';
+    }
+  }
+  
+  @keyframes color-shift-2 {
+    0%, 100% { 
+      background: 'radial-gradient(ellipse at bottom left, #8B5CF6 0%, #EC4899 40%, #F59E0B 70%, transparent 85%)';
+    }
+    40% { 
+      background: 'radial-gradient(ellipse at bottom left, #EC4899 0%, #F59E0B 40%, #3B82F6 70%, transparent 85%)';
+    }
+    80% { 
+      background: 'radial-gradient(ellipse at bottom left, #F59E0B 0%, #3B82F6 40%, #8B5CF6 70%, transparent 85%)';
+    }
+  }
+  
+  @keyframes color-shift-3 {
+    0%, 100% { 
+      background: 'radial-gradient(ellipse at center, #3B82F6 0%, #8B5CF6 50%, transparent 70%)';
+    }
+    50% { 
+      background: 'radial-gradient(ellipse at center, #8B5CF6 0%, #EC4899 50%, transparent 70%)';
+    }
+  }
+  
+  @keyframes color-shift-4 {
+    0%, 100% { 
+      background: 'radial-gradient(ellipse at center, #EC4899 0%, #F59E0B 40%, transparent 60%)';
+    }
+    50% { 
+      background: 'radial-gradient(ellipse at center, #F59E0B 0%, #3B82F6 40%, transparent 60%)';
+    }
+  }
+  
+  @keyframes color-shift-5 {
+    0%, 100% { 
+      background: 'radial-gradient(ellipse at center, #8B5CF6 0%, #3B82F6 30%, transparent 50%)';
+    }
+    50% { 
+      background: 'radial-gradient(ellipse at center, #3B82F6 0%, #EC4899 30%, transparent 50%)';
+    }
+  }
+  
+  @keyframes grain-move {
+    0% { 
+      transform: translateX(0px) translateY(0px);
+    }
+    25% { 
+      transform: translateX(-50px) translateY(-25px);
+    }
+    50% { 
+      transform: translateX(-100px) translateY(0px);
+    }
+    75% { 
+      transform: translateX(-50px) translateY(25px);
+    }
+  }
+
   /* Custom loader styles */
   .loader-wrapper {
     position: relative;
@@ -441,3 +603,4 @@
     box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
   }
 }
+

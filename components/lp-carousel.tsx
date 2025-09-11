@@ -20,7 +20,7 @@ export default function LpCarousel() {
         drag: 'free',
         focus: 'center',
         perPage: 5,
-        gap: '1rem',
+        gap: '0.5rem',
         padding: '2rem',
         pagination: false,
         arrows: false,
@@ -69,7 +69,7 @@ export default function LpCarousel() {
               <li key={project.id} className="splide__slide" style={{ overflow: 'visible' }}>
                 <LpProjectCard 
                   project={project} 
-                  className="h-80 w-auto sm:h-96 sm:w-auto md:h-[28rem] md:w-auto mx-auto"
+                  className="h-96 w-auto sm:h-[28rem] rounded-md sm:w-auto md:h-[32rem] md:w-auto mx-auto"
                   onHoverStart={(ref) => {
                     setActiveCardRef(ref);
                     setIsBlurVisible(true);
