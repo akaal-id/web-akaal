@@ -1,10 +1,16 @@
+"use client"
 import React from "react"
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
 import LpProjectCard from "./lp-project-card"
 import { projects } from "@/lib/project-data"
 
+// Import Swiper styles
+import 'swiper/css'
+
 export default function LpCarousel() {
-  // Get first 5 projects for the carousel
-  const carouselProjects = projects.slice(0, 5)
+  // Use all 10 projects for the carousel
+  const carouselProjects = projects
 
   return (
     <div className="w-full min-h-screen py-20 px-4">
@@ -19,15 +25,38 @@ export default function LpCarousel() {
           </p>
         </div>
 
-        {/* 5x1 Grid of Project Cards - Full Width */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
-          {carouselProjects.map((project) => (
-            <LpProjectCard
-              key={project.id}
-              project={project}
-              className="w-full"
-            />
-          ))}
+        {/* Swiper Carousel */}
+        <div className="pt-12 pb-12">
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+              },
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 24,
+              },
+            }}
+            className="w-full"
+          >
+            {carouselProjects.map((project) => (
+              <SwiperSlide key={project.id}>
+                <LpProjectCard
+                  project={project}
+                  className="w-full"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>
