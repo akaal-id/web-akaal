@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from "next";
 import StructuredData, { serviceStructuredData } from "@/components/StructuredData";
 import Background from "@/components/Background";
+import StartupAnimation from "@/components/StartupAnimation";
 
 export const metadata: Metadata = {
   title: "Our Services - Digital Solutions & Technology Services | Akaal",
@@ -50,8 +51,9 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      <StartupAnimation />
       <StructuredData data={serviceStructuredData} />
-      <Background variant="dots-only" />
+      <Background variant="top-radial" />
       
       <section className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 py-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">Our Services</h1>

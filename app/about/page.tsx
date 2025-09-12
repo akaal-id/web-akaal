@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Background from "@/components/Background";
+import StartupAnimation from "@/components/StartupAnimation";
 
 export const metadata: Metadata = {
   title: "About Akaal - Digital Innovation & Technology Solutions",
@@ -47,17 +48,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      <Background variant="dots-only" />
+      <StartupAnimation />
+      <Background variant="top-radial" />
       
-      <section className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">About Akaal</h1>
-        <p className="max-w-2xl text-lg md:text-xl text-center mb-4">
-          Akaal is a forward-thinking company dedicated to delivering innovative solutions and exceptional services. Our mission is to empower businesses and individuals through technology, creativity, and a commitment to excellence.
-        </p>
-        <p className="max-w-2xl text-base md:text-lg text-center text-muted-foreground">
-          With a team of passionate professionals, we strive to exceed expectations and build lasting relationships with our clients. Discover how Akaal can help you achieve your goals and transform your vision into reality.
-        </p>
-      </section>
+      <div className="relative z-10 flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <h1 className="text-6xl font-bold text-purple-400 mb-4">AKAAL</h1>
+          <p className="text-xl text-gray-300">Digital Innovation & Technology Solutions</p>
+        </div>
+      </div>
     </div>
   );
 }

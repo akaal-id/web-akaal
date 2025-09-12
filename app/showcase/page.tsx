@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 export default function ShowcasePage() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      <Background variant="dots-only" />
+      <Background variant="top-radial" />
       
       <section className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center px-4 py-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">Showcase</h1>

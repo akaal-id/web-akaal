@@ -1,34 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { projects } from "@/lib/project-data";
-import ProjectCard from "@/components/project-card";
-import BlurOverlay from "@/components/BlurOverlay";
+import CardWork from "@/components/card-work";
 
 export default function WorkGallery() {
-  const [isBlurVisible, setIsBlurVisible] = useState(false);
-  const [activeCardRef, setActiveCardRef] = useState<React.RefObject<HTMLDivElement> | undefined>(undefined);
-
   return (
-    <>
-      <BlurOverlay isVisible={isBlurVisible} activeCardRef={activeCardRef} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-8">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            className="h-[28rem]"
-            onHoverStart={(ref) => {
-              setActiveCardRef(ref);
-              setIsBlurVisible(true);
-            }}
-            onHoverEnd={() => {
-              setActiveCardRef(undefined);
-              setIsBlurVisible(false);
-            }}
-          />
-        ))}
-      </div>
-    </>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 gap-y-12">
+      {projects.map((project) => (
+        <CardWork
+          key={project.id}
+          project={project}
+          className="h-auto"
+        />
+      ))}
+    </div>
   );
 }

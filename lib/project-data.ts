@@ -229,10 +229,10 @@ export const projects: Project[] = [
     id: 10,
     title: "AKAAL Automation",
     client: "AKAAL Process",
-    image_url: "https://images.unsplash.com/photo-1518186285589-2f7649ce83e0?w=800&h=600&fit=crop",
+    image_url: "/images/dashboard.png",
     slug: "akaal-automation",
     description: "An intelligent automation platform that streamlines business processes and reduces manual workload through smart workflows.",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649ce83e0?w=800&h=600&fit=crop",
+    image: "/images/dashboard.png",
     year: "2024",
     overview: "Process automation platform with workflow management, task scheduling, and integration capabilities.",
     features: [

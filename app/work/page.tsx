@@ -9,7 +9,7 @@ export default function WorkPage() {
 
   return (
     <div className="relative min-h-screen text-white bg-black overflow-hidden pt-16">
-      <Background variant="dots-only" />
+      <Background variant="top-radial" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Header */}
