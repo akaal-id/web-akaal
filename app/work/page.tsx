@@ -8,7 +8,7 @@ import Background from "@/components/Background";
 export default function WorkPage() {
 
   return (
-    <div className="relative min-h-screen text-white bg-black overflow-hidden pt-16">
+    <div className="relative min-h-screen text-white bg-black overflow-hidden w-screen pt-16">
       <Background variant="top-radial" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -38,7 +38,7 @@ export default function WorkPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full font-medium hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 border border-gray-600 text-white rounded-full font-medium hover:border-purple-500 hover:text-purple-400 transition-all duration-300"
             >
               Get Started
               <ArrowRight className="ml-2 w-4 h-4" />

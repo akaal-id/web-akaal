@@ -10,6 +10,7 @@ import CTAButton from "@/components/ctabutton";
 import { projects } from "@/lib/project-data";
 import { useEffect } from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Page() {
   useEffect(() => {
@@ -29,7 +30,7 @@ export default function Page() {
   return (
     <div className="relative min-h-screen text-white bg-black overflow-hidden">
       <StartupAnimation />
-      <Background variant="both-radial" />
+      <Background variant="top-radial" />
 
       {/* 1. Title Section */}
       <section className="relative z-10 h-auto pt-36 pb-24 flex items-center justify-center px-4">
@@ -62,7 +63,7 @@ export default function Page() {
       <FadeInAnimation delay={3500} duration={1000}>
         <div className="relative z-10 h-80% pb-36 flex items-center justify-center px-4">
           <div className="text-center w-full">
-            <div className="w-full h-[720px]">
+            <div className="w-full h-[700px]">
               <CarouselSlider items={carouselItems} className="w-full h-full" />
             </div>
           </div>
@@ -84,6 +85,7 @@ export default function Page() {
         ></div>
         </div>
       </FadeInAnimation>
+
 
       </div>
   )

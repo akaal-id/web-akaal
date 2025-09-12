@@ -217,7 +217,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ items, className = "" }
       </div>
       
       {/* Navigation Arrows - Below center of cards */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
         {/* Left Arrow */}
         <button
           onClick={moveLeft}
