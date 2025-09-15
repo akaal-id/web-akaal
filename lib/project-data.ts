@@ -247,5 +247,28 @@ export const projects: Project[] = [
     teamSize: "7 members",
     liveUrl: "https://automation.akaal.com",
     github: "https://github.com/akaal/automation"
-  }
+  },
+  {
+    id: 11,
+    title: "AKAAL Digital Platform",
+    client: "AKAAL Technologies",
+    image_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    slug: "akaal-digital-platform",
+    description: "A comprehensive digital platform that revolutionizes how businesses manage their operations and connect with customers.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    year: "2024",
+    overview: "This project represents a complete digital transformation solution for modern businesses, featuring advanced analytics, real-time collaboration tools, and seamless integration capabilities.",
+    features: [
+      "Real-time analytics dashboard",
+      "Multi-tenant architecture",
+      "Advanced security protocols",
+      "Mobile-responsive design",
+      "API-first approach"
+    ],
+    technologies: ["React", "Node.js", "PostgreSQL", "Redis", "Docker", "AWS"],
+    duration: "6 months",
+    teamSize: "8 members",
+    liveUrl: "https://akaal-digital.com",
+    github: "https://github.com/akaal/digital-platform"
+  },
 ];

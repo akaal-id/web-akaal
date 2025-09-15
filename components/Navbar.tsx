@@ -8,10 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Mail, Home, BookOpen, User, Briefcase } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/", icon: Home },
-  { label: "About", href: "/about", icon: User },
   { label: "Work", href: "/work", icon: Briefcase },
-  { label: "Blog", href: "/blog", icon: BookOpen },
+  { label: "About", href: "/about", icon: User },
 ];
 
 export default function Navbar() {
@@ -52,29 +50,23 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 items-center">
           {/* Logo */}
-          <motion.div 
-            className="flex items-center gap-3"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Link href="/" className="flex items-center">
-              <Image 
-                src="/images/logo-fullcolor-negative-rgb copy.png" 
-                alt="Akaal Logo" 
-                width={120}
-                height={32}
-                className="h-8 w-auto object-contain"
-                style={{
-                  filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))'
-                }} 
-              />
-            </Link>
-          </motion.div>
+          <div className="flex items-center gap-3 w-32">
+            <Image 
+              src="/images/logo-fullcolor-negative-rgb copy.png" 
+              alt="Akaal Logo" 
+              width={120}
+              height={32}
+              className="h-8 w-auto object-contain"
+              style={{
+                filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2))'
+              }} 
+            />
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-3">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center justify-center flex-1">
             {/* Tabs Container */}
             <div
               ref={containerRef}
@@ -109,8 +101,10 @@ export default function Navbar() {
                 })}
               </div>
             </div>
+          </nav>
 
-            {/* Contact Buttons Container */}
+          {/* Contact Buttons Container - Right */}
+          <div className="hidden md:flex items-center w-32 justify-end">
             <div className="bg-muted/80 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20">
               <div className="flex items-center gap-2">
                 <motion.button
@@ -133,7 +127,7 @@ export default function Navbar() {
                 </motion.a>
               </div>
             </div>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <motion.button

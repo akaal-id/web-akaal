@@ -9,8 +9,8 @@ export default function Background({ variant = 'both-radial' }: BackgroundProps)
     <>
       {/* Background Dots */}
       <div className="absolute inset-0 opacity-30" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 0.5px, transparent 0)',
-        backgroundSize: '5px 5px'
+        backgroundImage: 'radial-gradient(circle at 4px 4px, rgba(255,255,255,0.3) 0.4px, transparent 0)',
+        backgroundSize: '4px 4px'
       }}></div>
 
       {/* Radial Blur Effects */}

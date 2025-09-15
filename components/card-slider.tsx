@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { createPortal } from "react-dom"
 import { Project } from "@/lib/project-data"
+import { ArrowRight } from "lucide-react";
 
 type CardSliderProps = {
   project: Project
@@ -41,6 +42,36 @@ export default function CardSlider({ project, className, onHoverStart, onHoverEn
         onHoverEnd?.();
       }}
     >
+      {/* Data - Text first - Only shown on hover - Aligned to bottom */}
+      <div className="flex flex-col justify-end h-20 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Container 1 - Client */}
+        <div className="group-hover:translate-y-0 px-1 pt-2 translate-y-1 transition-transform duration-500 delay-100">
+          <p className="text-gray-400 font-normal mb-2" style={{ fontFamily: 'Inter', fontSize: '14px' }}>
+            {project.client}
+          </p>
+        </div>
+        
+        {/* Container 2 - Title */}
+        <div className="group-hover:translate-y-0 px-1 -mt-2 translate-y-1 transition-transform duration-500 delay-200">
+          <h3 
+            className="text-white justify-start font-semibold leading-tight" 
+            style={{ 
+              fontFamily: 'Plus Jakarta Sans', 
+              fontSize: '20px',
+              lineHeight: '1.2em',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              maxHeight: '2.4em'
+            }}
+          >
+            {project.title}
+          </h3>
+        </div>
+      </div>
+      
       {/* Container - Image placeholder */}
       <div className="relative overflow-hidden rounded-3xl bg-gray-800 flex-1">
         <img 
@@ -68,40 +99,10 @@ export default function CardSlider({ project, className, onHoverStart, onHoverEn
         </div>
       </div>
       
-      {/* Data - Text second - Only shown on hover */}
-      <div className="flex flex-col justify-start h-20 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        {/* Container 1 - Title */}
-        <div className="px-1 pt-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-500 delay-100">
-          <h3 
-            className="text-white justify-start mb-2 font-semibold leading-tight" 
-            style={{ 
-              fontFamily: 'Plus Jakarta Sans', 
-              fontSize: '20px',
-              lineHeight: '1.2em',
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              maxHeight: '2.4em'
-            }}
-          >
-            {project.title}
-          </h3>
-        </div>
-        
-        {/* Container 2 - Client */}
-        <div className="group-hover:translate-y-0 px-1 -mt-2 translate-y-1 transition-transform duration-500 delay-200">
-          <p className="text-gray-400 font-normal" style={{ fontFamily: 'Inter', fontSize: '14px' }}>
-            {project.client}
-          </p>
-        </div>
-      </div>
-      
       {/* Custom cursor with tooltip - rendered outside transform context */}
       {isHovering && createPortal(
         <div
-          className="fixed pointer-events-none z-[9999] flex items-center gap-3"
+          className="fixed pointer-events-none z-[9999] flex items-center gap-2"
           style={{
             left: mousePosition.x + 75,
             top: mousePosition.y,
@@ -109,19 +110,24 @@ export default function CardSlider({ project, className, onHoverStart, onHoverEn
           }}
         >
           {/* Circle cursor */}
-          <div className="w-6 h-6 backdrop-blur-sm text-white rounded-lg text-sm font-medium rounded-full"
+          <div className="w-9 h-9 backdrop-blur-sm text-white rounded-9999 text-sm font-medium rounded-full"
                style={{ 
-                 background: 'linear-gradient(to bottom, #115C68, #22A6BB)',
-                 boxShadow: 'inset 0px 6px 10px rgba(42,207,234,1)'
+                 background: 'linear-gradient(to bottom, #115C68, #22A6BB, 0.2)',
+                 boxShadow: 'inset 0px 6px 10px rgba(42,207,234,0.2)',
+                 backdropFilter: 'blur(20px)',
+                 border: '1.5px solid rgba(255, 255, 255, 0.3)'
                }}>
+              <ArrowRight className="px-2 py-2 w-full h-full" />
           </div>
           
           {/* Tooltip */}
-          <div className="backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-normal"
+          <div className="backdrop-blur-sm text-gray-300 px-4 py-2 rounded-full text-sm font-normal"
                style={{ 
                  fontFamily: 'Inter',
-                 background: 'linear-gradient(to bottom, #115C68, #22A6BB)',
-                 boxShadow: 'inset 0px 6px 10px rgba(42,207,234,1)'
+                 background: 'linear-gradient(to bottom, #115C68, #22A6BB, 0.2)',
+                 boxShadow: 'inset 0px 6px 10px rgba(42,207,234,0.2)',
+                 backdropFilter: 'blur(20px)',
+                 border: '1.5px solid rgba(255, 255, 255, 0.3)'
                }}>
             See Case Study
           </div>

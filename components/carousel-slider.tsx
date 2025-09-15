@@ -175,7 +175,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ items, className = "" }
            key={`${index}-${i}`}
            className={`item ${levelClass}`}
            style={{
-             height: '560px',
+             height: '720px',
              width: '340px',
              position: 'absolute',
              left: leftPosition,
@@ -217,26 +217,22 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({ items, className = "" }
       </div>
       
       {/* Navigation Arrows - Below center of cards */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
+      <div className="absolute bottom-15 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
         {/* Left Arrow */}
         <button
           onClick={moveLeft}
-          className="w-9 h-9 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 backdrop-blur-sm border border-white/30"
+          className="w-9 h-9 bg-white/5 hover:bg-white/10 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 backdrop-blur-sm border border-white/30"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
           </svg>
         </button>
 
-        {/* See Work Button */}
-        <button className="px-4 py-2 bg-white/20 text-sm hover:bg-white/30 text-white font-light rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 backdrop-blur-sm border border-white/30">
-          See All Works
-        </button>
-
+        
         {/* Right Arrow */}
         <button
           onClick={moveRight}
-          className="w-9 h-9 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 backdrop-blur-sm border border-white/30"
+          className="w-9 h-9 bg-white/5 hover:bg-white/10 text-white rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 backdrop-blur-sm border border-white/30"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
