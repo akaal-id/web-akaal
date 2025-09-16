@@ -6,6 +6,7 @@ import CardAbout from "@/components/card-about";
 import CardService from "@/components/card-service";
 import CardHegira from "@/components/card-hegira";
 import JourneyCard from "@/components/card-journey";
+import SponsorSlider from "@/components/sponsor-slider";
 import { User, ArrowDown, Eye, Target, BadgePlus, Blocks, Handshake, UsersRound, Unplug, Volume2, Settings } from "lucide-react";
 import Link from "next/link";
 
@@ -79,7 +80,7 @@ export default function AboutPage() {
           {/* Main Title */}
           <FadeInAnimation delay={400}>
             <h1 
-              className="text-5xl md:text-[64px] lg:text-[64px] font-medium text-white mb-8 leading-[1.1] tracking-[-0.05em]"
+              className="text-4xl md:text-[64px] lg:text-[64px] font-medium text-white mb-8 leading-[1.1] tracking-[-0.05em]"
               style={{ fontFamily: 'Plus Jakarta Sans' }}
             >
               Bringing Vision to Life,
@@ -93,7 +94,7 @@ export default function AboutPage() {
           {/* Subtitle */}
           <FadeInAnimation delay={600}>
             <p 
-              className="text-md md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
+              className="text-sm md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
               style={{ fontFamily: 'Inter' }}
             >
               We build trust and strengthen brand identity. By combining cutting-edge technology with creative innovation, 
@@ -108,8 +109,21 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Sponsor Section */}
+      <div className="relative z-10 py-20 px-4 sm:px-6 md:px-8 lg:px-0">
+        <div className="mx-auto">
+          <FadeInAnimation delay={1000}>
+            <div className="text-center space-y-8">
+              
+              {/* Sponsor Slider */}
+              <SponsorSlider />
+            </div>
+          </FadeInAnimation>
+        </div>
+      </div>
+
       {/* First Section - Value Propositions */}
-      <div id="first-section" className="relative z-10 py-32 pt-16 pb-20 px-4 sm:px-6 md:px-8 lg:px-0">
+      <div id="first-section" className="relative z-10 py-32 pt-10 pb-20 px-4 sm:px-6 md:px-8 lg:px-0">
         <div className="max-w-[1574px] mx-auto">
 
 
@@ -151,6 +165,7 @@ export default function AboutPage() {
         </div>
       </div>
 
+
       {/* Tabs and Content Sections */}
       <div className="relative z-10 py-20 px-4 sm:px-6 md:px-8 lg:px-0">
         <div className="max-w-[1574px] mx-auto">
@@ -170,7 +185,7 @@ export default function AboutPage() {
                   {/* Left Column - Title */}
                   <div>
                     <h2 
-                      className="text-5xl md:text-[40px] lg:text-[40px] font-medium text-white leading-[1.2] tracking-[-0.05em]"
+                      className="text-4xl md:text-[40px] lg:text-[40px] font-medium text-white leading-[1.2] tracking-[-0.05em]"
                       style={{ fontFamily: 'Plus Jakarta Sans' }}
                     >
                       Be the Game Changer with One
@@ -186,7 +201,7 @@ export default function AboutPage() {
                   {/* Right Column - Description */}
                   <div className="flex items-center">
                     <p 
-                      className="text-gray-300 md:text-[20px] leading-[1.4] tracking-[-0.02em]"
+                      className="text-gray-300 text-base md:text-[20px] leading-[1.4] tracking-[-0.02em]"
                       style={{ fontFamily: 'Inter' }}
                     >
                       AKAAL is an innovative partner ready to bring businesses into the digital era with cutting-edge technology. Based in Jakarta, we provide the best solutions in digital marketing, creative branding, IT solutions, and AI automation, custom-designed to meet each client&apos;s unique needs. As a strategic partner, we are committed to driving digital success through expertise, creativity, and the latest technology.
@@ -235,7 +250,7 @@ export default function AboutPage() {
                       
                       {/* Title */}
                       <h3 
-                        className="text-2xl md:text-3xl mt-8 font-medium text-white leading-tight"
+                        className="text-xl md:text-3xl mt-8 font-medium text-white leading-tight"
                         style={{ fontFamily: 'Plus Jakarta Sans' }}
                       >
                         To build a collaborative, integrated, and innovative digital ecosystem that creates a wider positive impact.
@@ -305,7 +320,7 @@ export default function AboutPage() {
                       {/* First row, first column - Title */}
                       <div className="flex flex-col justify-center  ">
                         <h3 
-                          className="text-2xl md:text-2xl font-medium text-white leading-tight"
+                          className="text-xl md:text-2xl font-medium text-white leading-tight"
                           style={{ fontFamily: 'Plus Jakarta Sans' }}
                         >
                           We are committed to delivering innovative digital solutions, fostering strategic partnerships, and empowering businesses through technology and creativity.
@@ -413,7 +428,7 @@ export default function AboutPage() {
             {/* Title */}
             <div className="text-center">
               <h2 
-                className="text-5xl md:text-[40px] lg:text-[40px] font-medium text-white leading-[1.2] tracking-[-0.05em]"
+                className="text-4xl md:text-[40px] lg:text-[40px] font-medium text-white leading-[1.2] tracking-[-0.05em]"
                 style={{ fontFamily: 'Plus Jakarta Sans' }}
               >
                 Comprehensive Digital Solutions
@@ -425,7 +440,7 @@ export default function AboutPage() {
               
               {/* Subtitle */}
               <p 
-                className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mt-6"
+                className="text-gray-300 text-base md:text-xl leading-relaxed max-w-4xl mx-auto mt-6"
                 style={{ fontFamily: 'Inter' }}
               >
                 Technology-driven solutions designed to strengthen your business digital foundation, optimize operations, and create captivating visual experiences that drive growth and engagement.
@@ -517,14 +532,14 @@ export default function AboutPage() {
             {/* Title and Description */}
             <div className="text-center max-w-4xl mx-auto">
               <h2 
-                className="text-5xl md:text-[48px] lg:text-[48px] font-medium text-white leading-[1.2] tracking-[-0.05em] mb-6"
+                className="text-4xl md:text-[48px] lg:text-[48px] font-medium text-white leading-[1.2] tracking-[-0.05em] mb-6"
                 style={{ fontFamily: 'Plus Jakarta Sans' }}
               >
                 Crafting Experiences, <span className="bg-gradient-to-r from-purple-400 to-purple-800 bg-clip-text text-transparent">Empowering Impact.</span>
               </h2>
               
               <p 
-                className="text-gray-300 text-lg md:text-xl leading-relaxed"
+                className="text-gray-300 text-base md:text-xl leading-relaxed"
                 style={{ fontFamily: 'Inter' }}
               >
                 AKAAL helps brands grow through creative journeys, marketing strategies, and strong visual identity. We bring ideas to life, build emotional connections, and create impactful campaigns. Every step we design delivers authentic and memorable brand stories.
@@ -563,6 +578,8 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      
     </div>
   );
 }

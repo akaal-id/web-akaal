@@ -16,7 +16,7 @@ export default function CardService({ number, title, description, image, tag, in
       <img 
         src={image || "/images/service-card-1.png"} 
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover opacity-75"
+        className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:brightness-120 filter grayscale-80 group-hover:grayscale-0 transition-all duration-300"
       />
       
       {/* Strong black gradient overlay at bottom */}
@@ -51,14 +51,14 @@ export default function CardService({ number, title, description, image, tag, in
       {/* Content overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 px-6 pt-6 pb-8 z-10">
         <h3 
-          className="text-xl font-bold text-white mb-3 font-medium"
+          className="text-lg md:text-xl font-bold text-white mb-3 font-medium"
           style={{ fontFamily: 'Plus Jakarta Sans' }} 
         >
           {title}
         </h3>
         
         <p 
-          className="text-gray-300 text-sm leading-relaxed"
+          className="text-gray-300 text-xs md:text-sm leading-relaxed"
           style={{ fontFamily: 'Inter' }}
         >
           {description}
