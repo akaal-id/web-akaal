@@ -5,11 +5,17 @@ import { usePathname } from "next/navigation";
 import { useRef, useState, useLayoutEffect } from "react";
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone, Mail, Home, BookOpen, User, Briefcase } from "lucide-react";
+import { Menu, X, Phone, Mail, User, Briefcase } from "lucide-react";
 
 const NAV_ITEMS = [
+  { label: "About", href: "/", icon: User },
   { label: "Work", href: "/work", icon: Briefcase },
-  { label: "About", href: "/about", icon: User },
+];
+
+const ABOUT_TABS = [
+  { label: "About AKAAL", targetId: "about" },
+  { label: "Brand Handling", targetId: "brand-handling" },
+  { label: "Our Services", targetId: "services" },
 ];
 
 export default function Navbar() {
@@ -17,12 +23,19 @@ export default function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [activeIdx, setActiveIdx] = useState(
-    NAV_ITEMS.findIndex(item => item.href === pathname)
+    NAV_ITEMS.findIndex(
+      item =>
+        item.href === pathname ||
+        (item.href === "/" && pathname === "/about")
+    )
   );
   const [underlineStyle, setUnderlineStyle] = useState({});
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const [aboutActiveTab, setAboutActiveTab] = useState<string | null>(null);
+  const aboutTabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [homeActive, setHomeActive] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     const idx = hoveredIdx !== null ? hoveredIdx : activeIdx;
@@ -41,6 +54,78 @@ export default function Navbar() {
       });
     }
   }, [hoveredIdx, activeIdx]);
+
+  // Scroll spy for About page secondary tabs
+  useEffect(() => {
+    if (!(pathname === "/" || pathname === "/about")) return;
+    const sectionIds = ABOUT_TABS.map(t => t.targetId);
+    const elements = sectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+    if (elements.length === 0) return;
+
+    const getCurrentSection = () => {
+      const viewportAnchor = window.scrollY + window.innerHeight * 0.4; // 40% from top
+      const firstTop = elements[0].offsetTop;
+      if (window.scrollY + 1 < firstTop - window.innerHeight * 0.15) {
+        // Above the first section: placeholder state
+        return null;
+      }
+      // Find the last section whose top is above the anchor
+      let current: string | null = elements[0].id;
+      for (const el of elements) {
+        if (el.offsetTop <= viewportAnchor) {
+          current = el.id;
+        } else {
+          break;
+        }
+      }
+      return current;
+    };
+
+    const onScroll = () => {
+      const id = getCurrentSection();
+      if (id !== aboutActiveTab) setAboutActiveTab(id);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [pathname, aboutActiveTab]);
+
+  // Scroll spy for Work page single tab (Our Work)
+  useEffect(() => {
+    if (pathname !== "/work") return;
+    const el = document.getElementById("our-work");
+    if (!el) return;
+
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const anchorY = window.innerHeight * 0.4; // 40% from top
+      const inView = rect.top <= anchorY && rect.bottom > anchorY;
+      if (inView !== homeActive) setHomeActive(inView);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [pathname, homeActive]);
+
+  const handleAboutTabClick = (targetId: string) => {
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setAboutActiveTab(targetId);
+    }
+  };
 
   return (
     <motion.header 
@@ -66,8 +151,8 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center justify-center flex-1">
-            {/* Tabs Container */}
+          <nav className="hidden md:flex items-center justify-center flex-1 gap-3">
+            {/* Left: Main nav */}
             <div
               ref={containerRef}
               className="relative bg-muted/80 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20"
@@ -87,7 +172,7 @@ export default function Navbar() {
                       className={`relative px-4 py-2 text-sm font-normal transition-all duration-200 rounded-full flex items-center gap-2
                         ${isActive 
                           ? "bg-purple-500/10 text-purple-700 dark:text-purple-300" 
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                          : "text-white hover:text-foreground hover:bg-muted/50"
                         }
                         ${hoveredIdx === idx && !isActive ? "text-foreground" : ""}
                       `}
@@ -101,6 +186,49 @@ export default function Navbar() {
                 })}
               </div>
             </div>
+
+            {/* Right: About page section tabs */}
+            {(pathname === "/" || pathname === "/about") && (
+              <div className="relative bg-muted/80 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20">
+                <div className="flex items-center gap-2">
+                  {ABOUT_TABS.map((tab, idx) => {
+                    const selected = aboutActiveTab === tab.targetId;
+                    return (
+                      <button
+                        key={tab.targetId}
+                        ref={el => { aboutTabRefs.current[idx] = el; }}
+                        className={`px-4 py-2 text-sm font-light transition-all duration-200 rounded-full
+                          ${selected 
+                            ? "bg-cyan-500/20 text-cyan-300" 
+                            : "text-white hover:text-foreground hover:bg-muted/50"}
+                        `}
+                        onClick={() => handleAboutTabClick(tab.targetId)}
+                        type="button"
+                      >
+                        {tab.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {pathname === "/work" && (
+              <div className="relative bg-muted/80 backdrop-blur-sm rounded-full px-2 py-2 border border-border/20">
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    className={`px-4 py-2 text-sm font-light transition-all duration-200 rounded-full ${homeActive ? "bg-cyan-500/20 text-cyan-300" : "text-white hover:text-foreground hover:bg-muted/50"}`}
+                    onClick={() => {
+                      const section = document.getElementById("our-work");
+                      if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                  >
+                    Our Work
+                  </button>
+                </div>
+              </div>
+            )}
           </nav>
 
           {/* Contact Buttons Container - Right */}

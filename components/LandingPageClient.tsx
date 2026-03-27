@@ -103,7 +103,7 @@ export default function LandingPageClient() {
 
       {/* Work Gallery Section */}
       <FadeInAnimation delay={4000} duration={1000}>
-        <section className="relative z-10 pt-48 pb-24 px-4">
+        <section id="our-work" className="relative z-10 pt-48 pb-24 px-4">
           <div className="w-full">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-medium mb-4 text-white">

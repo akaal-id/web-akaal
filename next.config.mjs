@@ -23,6 +23,7 @@ const nextConfig = {
   // Increase timeout for chunk loading
   experimental: {
     webpackBuildWorker: true,
+    serverComponentsExternalPackages: ["googleapis"],
   },
 };
 

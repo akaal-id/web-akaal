@@ -2,9 +2,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const pathname = usePathname();
+  const hideChrome = pathname === "/test";
 
   useEffect(() => {
     const onScroll = () => {
@@ -16,9 +19,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Navbar />
+      {!hideChrome && <Navbar />}
       {children}
-      <Footer />
+      {!hideChrome && <Footer />}
       {showScrollTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

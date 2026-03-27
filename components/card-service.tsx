@@ -18,6 +18,14 @@ export default function CardService({ number, title, description, image, tag, in
         alt={title}
         className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:brightness-120 filter grayscale-80 group-hover:grayscale-0 transition-all duration-300"
       />
+      {/* Grid overlay (subtle) */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.07] group-hover:opacity-30 transition-opacity duration-300"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)` ,
+          backgroundSize: '48px 48px',
+          backgroundPosition: '0 0, 0 0'
+        }}
+      />
       
       {/* Strong black gradient overlay at bottom */}
       <div 

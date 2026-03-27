@@ -11,6 +11,14 @@ const CardHegira: React.FC = () => {
         alt="Hegira Background"
         className="absolute inset-0 w-full h-full object-cover rotate-180 opacity-10 group-hover:opacity-80 transition-all duration-300"
       />
+      {/* Grid overlay (subtle) */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.07] group-hover:opacity-20 transition-opacity duration-300"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)` ,
+          backgroundSize: '48px 48px',
+          backgroundPosition: '0 0, 0 0'
+        }}
+      />
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/20 transition-all duration-300" />
